@@ -2,8 +2,8 @@ const User = require("../models/User");
 const Procedure = require("../models/Procedure");
 const createProcedure = async (req, res) => {
   try {
-    const { title, html } = req.body;
-    const procedure = new Procedure({ title, html });
+    const { title, html, createdBy } = req.body;
+    const procedure = new Procedure({ title, html, createdBy });
     const result = await procedure.save();
     const user = await User.findOne({ userId: req.user.userId });
     user.procedureIds.push(result._id);
