@@ -8,8 +8,10 @@ const ProcedureSchema = new Schema({
   },
   html: {
     type: String,
-    required: true
   },
+  createdBy: {
+    type: String,
+  }
 },  { timestamps: true });
 
 module.exports = Procedure = mongoose.model("procedure", ProcedureSchema);

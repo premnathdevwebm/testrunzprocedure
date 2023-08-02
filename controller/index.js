@@ -10,6 +10,7 @@ const createProcedure = async (req, res) => {
     const newUser = await user.save();
     return res.status(200).json({ ...newUser });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ error: "Server error. Please try again" });
   }
 };
