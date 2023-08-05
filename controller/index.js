@@ -8,7 +8,7 @@ const createProcedure = async (req, res) => {
     const user = await User.findOne({ userId: req.user.userId });
     user.procedureIds.push(result._id);
     const newUser = await user.save();
-    return res.status(200).json({ ...newUser });
+    return res.status(200).json({ ...newUser, createdProcedure: result._id });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Server error. Please try again" });
